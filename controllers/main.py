@@ -16,7 +16,7 @@ def api_route():
 	return ('Welcome to the API Index')
 
 
-@api.route('/api/color', methods=['POST'])
+@api.route('/api/color', methods=['PUT'])
 def api_color_route():
 
 	body = request.get_json()
