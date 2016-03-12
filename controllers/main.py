@@ -42,6 +42,26 @@ def api_color_route():
 
 	return 'Success!'
 
+@api.route('/api/bridge', methods=['PUT'])
+def api_bridge_route():
+
+	# Delete all rows where timestamp older than (now - 5 seconds)
+
+	for room in [0, 1, 2]:
+
+		# Get all rows for room
+
+		# Find "aggregate" hue
+
+		hue = int(hue * 65535)
+
+		data = {"bri": 254, "hue": hue, "sat": 254}
+
+		r = requests.put('http://192.168.86.123/api/169b766c36914e2f2dd44e443bcbf1c7/lights/' + str(room + 1) + '/state', json=data)
+		print r.text
+
+	return 'Success!'
+
 # @main.app_errorhandler(404)
 # def page_not_found(e):
 #     return render_template('404.html'), 404
