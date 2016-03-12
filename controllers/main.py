@@ -35,7 +35,10 @@ def api_color_route():
 	hue = int(hue * 65535)
 	room = room + 1
 
-	r = requests.put('http://192.168.86.123/api/169b766c36914e2f2dd44e443bcbf1c7/lights/' + str(room) + '/state', data={"bri": 254, "hue": hue, "sat": 254})
+	data = {"bri": 254, "hue": hue, "sat": 254}
+	print jsonify(data)
+
+	r = requests.put('http://192.168.86.123/api/169b766c36914e2f2dd44e443bcbf1c7/lights/' + str(room) + '/state', data=data)
 	print r.text
 
 	return 'Success!'
