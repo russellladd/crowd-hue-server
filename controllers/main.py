@@ -1,5 +1,5 @@
 from flask import *
-from requests import *
+import requests
 
 main = Blueprint('main', __name__)
 api = Blueprint('api', __name__)
@@ -35,7 +35,7 @@ def api_color_route():
 	hue = int(hue * 65535)
 	room = room + 1
 
-	requests.put('192.168.86.123/api/169b766c36914e2f2dd44e443bcbf1c7/lights/' + room + '/state', data={"bri": 254, "hue": hue, "sat": 254})
+	requests.put('http://192.168.86.123/api/169b766c36914e2f2dd44e443bcbf1c7/lights/' + str(room) + '/state', data={"bri": 254, "hue": hue, "sat": 254})
 
 	return 'Success!'
 
